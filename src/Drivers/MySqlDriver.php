@@ -17,8 +17,8 @@ class MySqlDriver extends AbstractMySQLDriver
      */
     public function connect(array $params, $username = 'root', $password = 'test1234', array $driverOptions = []): DriverConnection
     {
-        $username = $username ?? Config::get('database.connections.mysql.username');
-        $password = $password ?? Config::get('database.connections.mysql.password');
+        $username = Config::get('database.connections.mysql.username') ?? $username;
+        $password = Config::get('database.connections.mysql.password') ?? $password;
         
         $params = [
             'user' => $username,
